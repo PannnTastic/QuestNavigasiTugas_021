@@ -26,3 +26,43 @@ enum class Navigasi{
     Data,
     Daftar
 }
+
+@Composable
+fun DataApp(
+    navController: NavHostController = rememberNavController(),
+    modifier: Modifier
+){
+    Box(){
+        NavHost(
+            navController = navController,
+            startDestination = Navigasi.Welcome.name,
+
+            modifier = Modifier.padding().fillMaxSize()
+        ){
+            composable(route = Navigasi.Welcome.name) {
+                WelcomePage(
+                    enterBtnClick = {
+                        navController.navigate(route = Navigasi.Data.name)
+                    }
+                )
+            }
+            composable(route = Navigasi.Data.name){
+                ListData(
+                    onBackBtnClick = {cancelAndBackToWelcome(navController)},
+                    onEnterBtnClick = {
+                        navController.navigate(route = Navigasi.Daftar.name)
+                        nextToForm(navController)
+                    }
+                )
+            }
+            composable(route = Navigasi.Daftar.name) {
+                DaftarAnggota(
+                    onSubmitBtnClick = {cancelAndBackToList(navController)},
+                    onBackBtnClick = {cancelAndBackToList(navController)}
+                )
+            }
+        }
+    }
+
+}
+
