@@ -82,4 +82,28 @@ private  fun cancelAndBackToList(
     navController.popBackStack(route = Navigasi.Data.name, inclusive = false)
 }
 
+//data class ShimmerState(val isLoading: Boolean)
+//
+//val LocalShimmerState = compositionLocalOf { ShimmerState(isLoading = false) }
+//@Composable
+//fun Modifier.shimmerable(
+//    shape: Shape = RoundedCornerShape(8.dp),
+//    color: Color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+//): Modifier {
+//    if (!LocalShimmerState.current.isLoading) return this
+//
+//    return this
+//        .shimmer()
+//        .background(color = color, shape = shape)
+//        .drawWithContent {
+//            // Do not draw the actual content.
+//        }
+//}
+//@Composable
+//fun ShimmerProvider(isLoading: Boolean = true, content: @Composable (Boolean) -> Unit) {
+//    CompositionLocalProvider(
+//        value = LocalShimmerState provides ShimmerState(isLoading = isLoading),
+//        content = { content(isLoading) },
+//    )
+//}
 
