@@ -66,3 +66,20 @@ fun DataApp(
 
 }
 
+private fun cancelAndBackToWelcome(
+    navController: NavHostController
+){
+    navController.popBackStack(route = Navigasi.Welcome.name, inclusive = false)
+}
+private fun nextToForm(
+    navController: NavHostController
+){
+    navController.popBackStack(route = Navigasi.Daftar.name, inclusive = false)
+}
+private  fun cancelAndBackToList(
+    navController: NavHostController
+){
+    navController.popBackStack(route = Navigasi.Data.name, inclusive = false)
+}
+
+
