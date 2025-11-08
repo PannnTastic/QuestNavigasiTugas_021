@@ -49,6 +49,28 @@ fun DaftarAnggota(
     onSubmitBtnClick: () -> Unit,
     onBackBtnClick: () -> Unit
 ){
+    var txtNama by remember { mutableStateOf("") }
+    var txtJk by remember { mutableStateOf("") }
+    var txtStatus by remember { mutableStateOf("") }
+    var txtAlamat by remember { mutableStateOf("") }
+
+    var nama by remember { mutableStateOf("") }
+    var jk by remember { mutableStateOf("") }
+    var status by remember { mutableStateOf("") }
+    var alamat by remember { mutableStateOf("") }
+
+    var submitted by remember { mutableStateOf(false) }
+    var expandedStatus by remember { mutableStateOf(false) }
+    var showDialog by remember { mutableStateOf(false) }
+
+    val statusList = listOf("Menikah", "Belum Menikah","Cerai")
+    val gender = listOf("Laki-Laki", "Perempuan")
+
+    val isValid = txtNama.isNotEmpty()
+            && txtAlamat.isNotEmpty()
+            && txtJk.isNotEmpty()
+            && txtStatus.isNotEmpty()
+
 
 
 
